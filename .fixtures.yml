@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    "repos": "git://github.com/jmslagle/puppet-jslagle-repos.git"
+  symlinks:
+    "puppet": "#{source_dir}"
