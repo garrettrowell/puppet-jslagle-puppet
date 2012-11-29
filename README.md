@@ -21,5 +21,5 @@ Please log tickets and issues at our [Projects site](https://github.com/jmslagle
 CI Status
 ---------
 
-[![Build Status](https://travis-ci.org/jmslagle/jslagle-puppet.png)](https://travis-ci.org/jmslagle/jslagle-puppet)
+[![Build Status](https://travis-ci.org/jmslagle/puppet-jslagle-puppet.png)](https://travis-ci.org/jmslagle/puppet-jslagle-puppet)
 
