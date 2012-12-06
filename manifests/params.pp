@@ -2,15 +2,13 @@ class puppet::params {
   case $::osfamily {
     Redhat: {
       $masterpkg = "puppetmaster"
-      $clientpkg = "puppet"
-      $dbpkg = "puppetdb"
+      $agentpkg = "puppet"
       $agentsvc = "puppet"
     }
 
     Debian: {
       $masterpkg = "puppetmaster"
-      $clientpkg = "puppet"
-      $dbpkg = "puppetdb"
+      $agentpkg = "puppet"
       $agentsvc = "puppet"
     }
 

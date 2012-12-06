@@ -5,7 +5,7 @@ class puppet::package (
   require repos::puppetlabs
 
   package { 'puppet-agent':
-    name    => $puppet::params::clientpkg,
+    name    => $puppet::params::agentpkg,
     ensure  => $ensure,
     require => Class["repos::puppetlabs"],
   }
