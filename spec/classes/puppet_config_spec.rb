@@ -15,7 +15,7 @@ describe 'puppet::config' do
   describe 'Default options set in generated config' do
     it { should contain_augeas('puppet-agent-config').with(
       'changes' => [
-        "set master/pluginsync true",
+        "set main/pluginsync true",
         "set agent/graph true",
         "set agent/graphdir /var/puppet/state/graphs",
         "set agent/report true"
