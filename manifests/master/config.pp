@@ -1,8 +1,8 @@
 class puppet::master::config (
-  $puppetdb = "true",
-  $reports = "store",
-  $storeconfigs = "true",
-  $storeconfigs_backend = "puppetdb",
+  $puppetdb = 'true',
+  $reports = 'store',
+  $storeconfigs = 'true',
+  $storeconfigs_backend = 'puppetdb',
   $puppetdb_server = undef,
   $puppetdb_port = undef
 ) inherits puppet::params {
@@ -19,13 +19,13 @@ class puppet::master::config (
   if (str2bool($puppetdb)) {
     validate_string($puppetdb_server, $puppetdb_port)
     if ($puppetdb_server == undef or $puppetdb_port == undef) {
-      fail("Must specify puppetdb server and port")
+      fail('Must specify puppetdb server and port')
     }
-    $routesensure = "present"
-    $dbconfensure = "present"
+    $routesensure = 'present'
+    $dbconfensure = 'present'
   } else {
-    $routesensure = "absent"
-    $dbconfensure = "absent"
+    $routesensure = 'absent'
+    $dbconfensure = 'absent'
   }
 
   realize File[$puppet::params::config]

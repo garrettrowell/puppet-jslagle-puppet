@@ -1,17 +1,17 @@
 class puppet::params {
   case $::osfamily {
     Redhat: {
-      $masterpkg = "puppetmaster"
-      $mastersvc = "puppetmaster"
-      $agentpkg = "puppet"
-      $agentsvc = "puppet"
+      $masterpkg = 'puppetmaster'
+      $mastersvc = 'puppetmaster'
+      $agentpkg = 'puppet'
+      $agentsvc = 'puppet'
     }
 
     Debian: {
-      $masterpkg = "puppetmaster"
-      $mastersvc = "puppetmaster"
-      $agentpkg = "puppet"
-      $agentsvc = "puppet"
+      $masterpkg = 'puppetmaster'
+      $mastersvc = 'puppetmaster'
+      $agentpkg = 'puppet'
+      $agentsvc = 'puppet'
     }
 
     default: {
@@ -21,6 +21,5 @@ class puppet::params {
 
   # Packages are more likely to change, so we'll leave them in the
   # case - the config files are pretty consistent
-  $config = "/etc/puppet/puppet.conf"
- 
+  $config = '/etc/puppet/puppet.conf'
 }

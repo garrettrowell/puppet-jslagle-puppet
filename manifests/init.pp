@@ -3,7 +3,7 @@ class puppet {
   include puppet::config
   include puppet::service
 
-  Class['puppet::package'] -> Class['puppet::config'] 
+  Class['puppet::package'] -> Class['puppet::config']
     ~> Class['puppet::service']
 
 }

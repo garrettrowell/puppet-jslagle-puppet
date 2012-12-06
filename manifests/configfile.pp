@@ -1,5 +1,5 @@
-class puppet::configfile inherits puppet::params {
-  
+class puppet::configfile {
+  require puppet::params
   @file { $puppet::params::config:
     ensure  => present,
     replace => false,

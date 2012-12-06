@@ -5,8 +5,8 @@ class puppet::master::package (
   require repos::puppetlabs
 
   package { 'puppet-master':
-    name    => $puppet::params::masterpkg,
     ensure  => $ensure,
-    require => Class["repos::puppetlabs"],
+    name    => $puppet::params::masterpkg,
+    require => Class['repos::puppetlabs'],
   }
 }
