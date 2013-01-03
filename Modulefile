@@ -7,5 +7,7 @@ description 'This module handles installing and configuring puppet'
 project_page 'https://github.com/jmslagle/puppet-jslagle-puppet'
 
 ## Add dependencies, if any:
-dependency 'jslagle/repos'
+# Commented out until released on forge to make librarian-puppet happy
+# TODO - RELEASE
+#dependency 'jslagle/repos'
 # dependency 'username/name', '>= 1.2.0'
