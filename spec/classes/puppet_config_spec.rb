@@ -17,7 +17,7 @@ describe 'puppet::config' do
       'changes' => [
         "set main/pluginsync true",
         "set agent/graph true",
-        "set agent/graphdir /var/puppet/state/graphs",
+        "set agent/graphdir /var/lib/puppet/state/graphs",
         "set agent/report true"
     ],
     'context' => "/files/etc/puppet/puppet.conf"
