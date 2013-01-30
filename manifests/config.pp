@@ -2,7 +2,7 @@ class puppet::config (
   $pluginsync = 'true',
   $report = 'true',
   $graph = 'true',
-  $graphdir = '/var/puppet/state/graphs',
+  $graphdir = '/var/lib/puppet/state/graphs',
 ) inherits puppet::params {
 
   include puppet::configfile
