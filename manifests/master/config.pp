@@ -4,7 +4,9 @@ class puppet::master::config (
   $storeconfigs = 'true',
   $storeconfigs_backend = 'puppetdb',
   $puppetdb_server = undef,
-  $puppetdb_port = undef
+  $puppetdb_port = undef,
+  $ca_hostname = undef,
+  $report_server = undef,
 ) inherits puppet::params {
 
   include puppet::configfile
@@ -37,6 +39,31 @@ class puppet::master::config (
       "set master/storeconfigs ${storeconfigs}",
       "set master/storeconfigs_backend ${storeconfigs_backend}",
     ],
+  }
+
+  if $ca_hostname != undef {
+    if $ca_hostname == $::hostname {
+      $is_ca = 'true'
+    } else {
+      $is_ca = 'false'
+    }
+
+    augeas { 'puppet-master-ca_hostname':
+      context => "/files${puppet::params::config}",
+      changes => [
+        "set main/ca_server ${ca_hostname}",
+        "set master/ca ${is_ca}",
+      ],
+    }
+  }
+
+  if $report_server != undef {
+    augeas { 'puppet-master-report_server':
+      context => "/files${puppet::params::config}",
+      changes => [
+        "set master/report_server ${report_server}",
+      ],
+    }
   }
 
   file { '/etc/puppet/fileserver.conf':
