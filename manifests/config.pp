@@ -3,7 +3,7 @@ class puppet::config (
   $report = 'true',
   $graph = 'true',
   $graphdir = '/var/lib/puppet/state/graphs',
-  $use_srv = false,
+  $use_srv = 'false',
   $srv_domain = undef,
 ) inherits puppet::params {
 
@@ -24,7 +24,7 @@ class puppet::config (
     ],
   }
 
-  if $use_srv == true and $srv_domain != undef {
+  if $use_srv == 'true' and $srv_domain != undef {
     augeas { 'puppet-agent-srv_records':
       context => "/files${puppet::params::config}",
       changes => [
