@@ -35,14 +35,14 @@ class puppet::master::config (
   augeas { 'puppet-master-config':
     context => "/files${puppet::params::config}",
     changes => [
-      "set master/reports ${reports}",
+      "set master/reports '${reports}'",
       "set master/storeconfigs ${storeconfigs}",
       "set master/storeconfigs_backend ${storeconfigs_backend}",
     ],
   }
 
   if $ca_hostname != undef {
-    if $ca_hostname == $::hostname {
+    if $ca_hostname == $::fqdn {
       $is_ca = 'true'
     } else {
       $is_ca = 'false'
