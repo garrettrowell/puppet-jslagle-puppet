@@ -1,0 +1,21 @@
+---
+:backends:
+ - redis
+ - yaml
+ - eyaml
+:yaml:
+ :datadir: <%= @hiera_data_dir_real %>
+:eyaml:
+ :datadir: <%= @hiera_data_dir_real %>
+ :pkcs7_private_key: /etc/puppet/secure/keys/private_key.pkcs7.pem
+ :pkcs7_public_key: /etc/puppet/secure/keys/public_key.pkcs7.pem
+:redis:
+ :host: <%= @redis_server %> 
+:hierarchy:
+ - %{fqdn}
+ - %{environment}/%{app}
+ - %{environment}/common
+ - %{location}/%{app}
+ - %{location}/common
+ - %{app}
+ - common

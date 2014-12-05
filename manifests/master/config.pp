@@ -7,6 +7,7 @@ class puppet::master::config (
   $puppetdb_port = undef,
   $ca_hostname = undef,
   $report_server = undef,
+  $hiera_data_dir = undef,
 ) inherits puppet::params {
 
   include puppet::configfile
@@ -28,6 +29,13 @@ class puppet::master::config (
   } else {
     $routesensure = 'absent'
     $dbconfensure = 'absent'
+  }
+
+  if $hiera_data_dir != undef {
+    validate_string($hiera_data_dir)
+    $hiera_data_dir_real = $hiera_data_dir
+  } else {
+    $hiera_data_dir_real = '/etc/puppet/data'
   }
 
   realize File[$puppet::params::config]
@@ -92,6 +100,22 @@ class puppet::master::config (
     mode   => '0644',
     source => 'puppet:///modules/puppet/etc/puppet/routes.yaml',
   }
+
+  $redis_server = "${::location}-p-redis-01.int.ppcit.net"
+
+  file { '/etc/puppet/hiera.yaml':
+    ensure => 'present',
+    owner  => 'root',
+    mode   => '0644',
+    content => template('puppet/hiera.yaml.erb'),
+  }
+
+  file { $hiera_data_dir_real:
+    ensure => 'directory',
+    owner  => 'puppet',
+    mode   => '0755',
+  }
+
   File[$puppet::params::config] -> Augeas['puppet-master-config']
 
 }
