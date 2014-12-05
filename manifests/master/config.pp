@@ -104,9 +104,9 @@ class puppet::master::config (
   $redis_server = "${::location}-p-redis-01.int.ppcit.net"
 
   file { '/etc/puppet/hiera.yaml':
-    ensure => 'present',
-    owner  => 'root',
-    mode   => '0644',
+    ensure  => 'present',
+    owner   => 'root',
+    mode    => '0644',
     content => template('puppet/hiera.yaml.erb'),
   }
 
