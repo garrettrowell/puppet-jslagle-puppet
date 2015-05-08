@@ -1,6 +1,8 @@
 ---
 :backends:
+<% if @hiera_redis -%>
  - redis
+<% end -%>
  - yaml
  - eyaml
 :yaml:
@@ -9,8 +11,10 @@
  :datadir: <%= @hiera_data_dir_real %>
  :pkcs7_private_key: /etc/puppet/secure/keys/private_key.pkcs7.pem
  :pkcs7_public_key: /etc/puppet/secure/keys/public_key.pkcs7.pem
+<% if @hiera_redis -%>
 :redis:
  :host: <%= @redis_server %> 
+<% end -%>
 :hierarchy:
  - %{fqdn}
  - %{environment}/%{app}

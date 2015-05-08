@@ -8,6 +8,7 @@ class puppet::master::config (
   $ca_hostname = undef,
   $report_server = undef,
   $hiera_data_dir = undef,
+  $hiera_redis = true,
 ) inherits puppet::params {
 
   include puppet::configfile
@@ -101,7 +102,7 @@ class puppet::master::config (
     source => 'puppet:///modules/puppet/etc/puppet/routes.yaml',
   }
 
-  $redis_server = "${::location}-p-redis-01.int.ppcit.net"
+  $redis_server = "${::location}-p-redis-01.${::domain}"
 
   file { '/etc/puppet/hiera.yaml':
     ensure  => 'present',
