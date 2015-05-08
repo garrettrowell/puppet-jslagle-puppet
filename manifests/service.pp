@@ -1,5 +1,5 @@
 class puppet::service (
-  $ensure = 'running',
+  $ensure  = 'running',
   $enabled = 'true'
 ) inherits puppet::params {
   include stdlib
@@ -7,9 +7,9 @@ class puppet::service (
   validate_string($ensure, $enabled)
 
   service { 'puppet-agent':
-    ensure  => $ensure,
-    name    => $puppet::params::agentsvc,
-    enable  => $enabled,
+    ensure => $ensure,
+    name   => $puppet::params::agentsvc,
+    enable => $enabled,
   }
 
 }

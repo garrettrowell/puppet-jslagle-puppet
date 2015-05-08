@@ -1,14 +1,14 @@
 class puppet::master::config (
-  $puppetdb = 'true',
-  $reports = 'store',
-  $storeconfigs = 'true',
+  $puppetdb             = 'true',
+  $reports              = 'store',
+  $storeconfigs         = 'true',
   $storeconfigs_backend = 'puppetdb',
-  $puppetdb_server = undef,
-  $puppetdb_port = undef,
-  $ca_hostname = undef,
-  $report_server = undef,
-  $hiera_data_dir = undef,
-  $hiera_redis = true,
+  $puppetdb_server      = undef,
+  $puppetdb_port        = undef,
+  $ca_hostname          = undef,
+  $report_server        = undef,
+  $hiera_data_dir       = undef,
+  $hiera_redis          = true,
 ) inherits puppet::params {
 
   include puppet::configfile

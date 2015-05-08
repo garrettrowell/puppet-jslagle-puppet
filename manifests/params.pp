@@ -3,15 +3,15 @@ class puppet::params {
     Redhat: {
       $masterpkg = 'puppetmaster'
       $mastersvc = 'puppetmaster'
-      $agentpkg = 'puppet'
-      $agentsvc = 'puppet'
+      $agentpkg  = 'puppet'
+      $agentsvc  = 'puppet'
     }
 
     Debian: {
       $masterpkg = 'puppetmaster'
       $mastersvc = 'puppetmaster'
-      $agentpkg = 'puppet'
-      $agentsvc = 'puppet'
+      $agentpkg  = 'puppet'
+      $agentsvc  = 'puppet'
     }
 
     default: {
