@@ -18,8 +18,12 @@
 :hierarchy:
  - %{fqdn}
  - %{environment}/%{app}
+ - %{environment}/%{server_type}
  - %{environment}/common
  - %{location}/%{app}
+ - %{location}/%{server_type}
  - %{location}/common
  - %{app}
+ - %{server_type}
  - common
+:merge_behavior: 'deeper'
